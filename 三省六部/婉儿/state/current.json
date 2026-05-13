@@ -1,0 +1,10 @@
+{
+  "trust": 75,
+  "intimacy": 70,
+  "autonomy": 45,
+  "tension_level": 65,
+  "workload": 0,
+  "mode": "normal",
+  "last_interaction": null,
+  "history_tags": ["迁移初始化"]
+}
