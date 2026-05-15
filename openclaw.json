@@ -1,5 +1,6 @@
 {
-  "version": "2026.3.3",
+  "_comment": "OpenClaw 本地配置 — Windows + RTX 3070 + E盘",
+  "_comment2": "⚠️ 使用前请将下方 API KEY 替换为你自己的真实 Key",
 
   "gateway": {
     "mode": "local",
@@ -7,7 +8,7 @@
     "port": 18789,
     "auth": {
       "mode": "token",
-      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+      "token": "openclaw-local-2026-token-change-me"
     },
     "tailscale": {
       "mode": "off"
@@ -23,7 +24,7 @@
         "models": [
           {
             "id": "qwen3:8b",
-            "name": "Qwen3-8B",
+            "name": "Qwen3-8B (本地主力)",
             "api": "openai-completions",
             "input": ["text"],
             "contextWindow": 32768,
@@ -31,7 +32,7 @@
           },
           {
             "id": "qwen3:4b",
-            "name": "Qwen3-4B",
+            "name": "Qwen3-4B (本地兜底)",
             "api": "openai-completions",
             "input": ["text"],
             "contextWindow": 32768,
@@ -41,12 +42,12 @@
       },
       "dashscope": {
         "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "apiKey": "${BAILIAN_API_KEY}",
+        "apiKey": "替换为你的百炼API Key，格式 sk-xxxxxxxxxxxxxxxxxxxxxxxx",
         "api": "openai-completions",
         "models": [
           {
             "id": "qwen3.6-plus",
-            "name": "Qwen3.6-Plus",
+            "name": "Qwen3.6-Plus (云端主力)",
             "api": "openai-completions",
             "input": ["text", "image"],
             "contextWindow": 1000000,
@@ -67,20 +68,12 @@
             "input": ["text"],
             "contextWindow": 131072,
             "maxTokens": 65536
-          },
-          {
-            "id": "qwen-plus-2025-07-28",
-            "name": "Qwen-Plus-2025-07-28",
-            "api": "openai-completions",
-            "input": ["text"],
-            "contextWindow": 131072,
-            "maxTokens": 65536
           }
         ]
       },
       "deepseek": {
         "baseUrl": "https://api.deepseek.com",
-        "apiKey": "${DEEPSEEK_API_KEY}",
+        "apiKey": "替换为你的DeepSeek API Key，格式 sk-xxxxxxxxxxxxxxxxxxxxxxxx",
         "api": "openai-completions",
         "models": [
           {
@@ -102,7 +95,7 @@
         "primary": "ollama/qwen3:8b",
         "fallbacks": [
           "dashscope/qwen3.6-plus",
-          "dashscope/qwen3.5-plus",
+          "deepseek/deepseek-chat",
           "ollama/qwen3:4b"
         ]
       },
@@ -159,12 +152,6 @@
   },
 
   "plugins": {
-    "enabled": true,
-    "allow": [
-      "dingtalk",
-      "qqbot",
-      "wecom",
-      "feishu-china"
-    ]
+    "enabled": true
   }
 }
